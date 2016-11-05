@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Connexus</title>
+</head>
+<body>
+<div class="header">
+{% block manage %} <td><li><a href="management">Manage</a></li></td> {% endblock %}
+{% block create %} <td><li><a href="create">Create</a></li><td> {% endblock%}
+{% block view %} <td><li><a href="view">View</a></li><td> {% endblock %}
+{% block trending %} <td><li><a href="trending">Trending</a></li></td> {% endblock %}
+{% block search %} <td><li><a href="search">Search</a></li></td> {% endblock %}
+</div>
+<div class="content">
+{% block content %}{% endblock %}
+</div>
+</body>
+</html>
