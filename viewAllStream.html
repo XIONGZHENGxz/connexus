@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block view %} 
+<li class="active"><a href="viewAll">View</a></li>
+{% endblock %}
+
+{% block content %}
+<div class="page_header">
+	<h1>View All Streams</h1>
+</div>
+<table>
+	{% for stream in streams %}
+		{% if stream %}
+		{% if loop.index0 %4 ==0}
+		<tr>
+		{% endif %}
+			<td>
+				<a href="{{stream.url}}">
+				<img src="{{stream.coverUrl}}" alt="cover image">
+				</a>
+			</td>
+		{% if loop.index0 %4==3}
+		</tr>
+		{% endif %}
+		{% endif %}
+	{% endfor %}
+</table>
+{% endblock %}

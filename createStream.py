@@ -3,9 +3,11 @@ import os
 from google.appengine.api import users
 from google.appengine.ext import ndb
 import jinja2
+
 JINJA_ENV=jinja2.Environment(loader=jinja2.FileSystemLoader(os.path.dirname(__file__)),
 extensions=['jinja2.ext.autoescape'],
 autoescape=True)
+
 class Stream(ndb.Model):
 	owner=ndb.UserProperty()
 	tag=ndb.StringProperty(repeated=True)
@@ -13,6 +15,7 @@ class Stream(ndb.Model):
 	subscribers=ndb.StringProperty(repeated=True)
 	createDate=ndb.DateTimeProperty(auto_now_add=True)
 	dateOfLastPic=ndb.DateTimeProperty(auto_now_add=True)
+	url=ndb.StringProperty()
 	coverUrl=ndb.StringProperty()
 	numOfPictures=ndb.IntegerProperty()
 	@classmethod
@@ -25,9 +28,9 @@ class Stream(ndb.Model):
 
 class createStreamPage(webapp2.RequestHandler):
 	def get(self):
-		template=JINJA_ENV.get_template('createStream.html')
-		self.response.write("hello world")
-		self.response.write(template.render())
+#		template=JINJA_ENV.get_template('createStream.html')
+		self.response.write('hello world')
+#		self.response.write(template.render())
 
 class createStream(webapp2.RequestHandler):
 	def post(self):
@@ -41,5 +44,5 @@ class createStream(webapp2.RequestHandler):
 		stream.put()
 
 
-app=webapp2.WSGIApplication([('/createStream',createStreamPage),
-('/create',createStream)],debug=True)
+app=webapp2.WSGIApplication([('/createstream',createStreamPage),
+('/create',createStream),],debug=True)

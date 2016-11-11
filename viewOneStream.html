@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="page_header">
+	<h1>{{stream.name}}</h1>
+</div>
+<table>
+	<tr>
+		{% for pic int pictures %}
+		<td><img src="{{pic.key}}"></td>
+		{% endfor %}
+	<tr>
+</table>
+<div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4"></div>
+        <div class="col-md-4"><p><a class="btn btn-primary" href="{{showmoreurl}}" role="button">More Pictures &raquo;</a></p></div>
+</div>
+
+
+
