@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block management %} <li class="active"><a href="management">Management</a></li>{% endblock %}
+{% block content %}
+<h2>Streams I own</h2>
+<form action="/delete" method="post">
+<table style="width:100%">
+  <tr>
+    <th>Name</th>
+    <th>Last new picture</th> 
+    <th>Number of pictures</th>
+    <th>Delete</th>
+  </tr>
+  {% for stream in Mystreams%}
+        <tr>
+            {% if stream %}
+            <td><a href="{{stream.url}}">{{stream.name}}</a></td>
+            <td>{{stream.lastNewPicDate}}</td>
+            <td>{{stream.numOfPictures}}</td>
+            <td><input type="checkbox" name="status" value="{{stream.name}}"></td>
+            {% endif %}
+        </tr>
+  {% endfor %}
+</table>
+<intput type="submit" name="delete"><br>
+</form>
+<h2>Streams I subscribeto</h2>
+<form action="unsubscribe" method="post">
+<table style="width:100%">
+    <tr>
+	<th>Name</th>
+	<th>Last New Picture</th>
+	<th>Number of Pictures</th>
+	<th>Views</th>
+	<th>Unsubscribe</th>
+	</tr>
+	{% for stream0 in subStreams %}
+		<tr>
+			{% if stream0 %}
+			<td><a href="{{stream0.url}}">{{stream0.name}}</a></td>
+			<td>{{stream0.lastNewPicDate}}</td>
+			<td>{{stream0.numOfPictures}}</td>
+			<td><input type="checkbox" name="status" value="{{stream0.name}}"></td>
+			{% endif %}
+		</tr>
+	{% endfor %}
+<input type="submit" name="unsubscribe"><br>
+</table>
+</form>
+{% endblock %}

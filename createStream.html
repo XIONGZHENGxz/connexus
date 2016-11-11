@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block create %}
+<li class="active"><a href="createStream">Create</a></li>
+{% endblock %}
+{% block content %}
+
+<div class="create_stream_template">
+<form action="/create" method=post>
+	<table>
+		<tr>
+			<th>Name your stream</th>
+			<th>Tag your stream</th>
+		</tr>
+		<tr>
+			<td><textarea name="stream_name" rows="3" cols="4"></textarea></td>
+			<td><textarea name="stream_tags" rows="3" cols="4"></textarea></td>
+		</tr>
+		<tr>
+			<td>Add subscribers</td>
+			<td>URL to cover image</td>
+		</tr>
+		<tr>
+			<td><textarea name="subscribers" rows="3" cols="30" placeholder="input of the email of subscribers"></textarea></td>
+			<td><textarea name="cover_image_url" rows="1" cols="40" placeholder="input the url of cover image(optional)"></textarea></td>
+		</tr>
+		<tr>
+			<td><textarea name="email_content" rows="3" cols="30" placeholder="content of email"></textarea></td>
+	</table>
+	<br><br>
+	<input type="submit" value="create stream">
+</form>
+{% endblock %}
