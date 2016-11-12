@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<table>
+	{% for stream in streams %}
+		<tr>
+			<td><a href="{{stream.url}}">
+				<img src="{{stream.coverUrl}}">
+				</a>
+			</td>
+		</tr>
+	{% endfor %}
+</table>
+{% endblock %}
+
+
