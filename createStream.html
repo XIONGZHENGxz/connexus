@@ -1,19 +1,16 @@
 {% extends "base.html" %}
-{% block create %}
-<li class="active"><a href="createstream">Create</a></li>
-{% endblock %}
+{% block create %} <li class="active" ><a href="createstream">Create</a></li>{% endblock %}
 {% block content %}
-
 <div class="create_stream_template">
-<form action="/create" method=post>
+<form action="/create" method="POST">
 	<table>
 		<tr>
 			<th>Name your stream</th>
 			<th>Tag your stream</th>
 		</tr>
 		<tr>
-			<td><textarea name="stream_name" rows="3" cols="4"></textarea></td>
-			<td><textarea name="stream_tags" rows="3" cols="4"></textarea></td>
+			<td><textarea name="stream_name" rows="3" cols="20"></textarea></td>
+			<td><textarea name="stream_tags" rows="3" cols="40"></textarea></td>
 		</tr>
 		<tr>
 			<td>Add subscribers</td>

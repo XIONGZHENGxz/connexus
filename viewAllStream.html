@@ -5,12 +5,12 @@
 
 {% block content %}
 <div class="page_header">
-	<h1>View All Streams</h1>
+	<h1>All Streams</h1>
 </div>
 <table>
 	{% for stream in streams %}
 		{% if stream %}
-		{% if loop.index0 %4 ==0}
+		{% if loop.index0 %4 ==0 %}
 		<tr>
 		{% endif %}
 			<td>
@@ -18,7 +18,7 @@
 				<img src="{{stream.coverUrl}}" alt="cover image">
 				</a>
 			</td>
-		{% if loop.index0 %4==3}
+		{% if loop.index0 %4==3 %}
 		</tr>
 		{% endif %}
 		{% endif %}

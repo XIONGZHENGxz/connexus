@@ -2,7 +2,7 @@
 {% block management %} <li class="active"><a href="management">Management</a></li>{% endblock %}
 {% block content %}
 <h2>Streams I own</h2>
-<form action="/delete" method="post">
+<form action="/deletestream" method="post">
 <table style="width:100%">
   <tr>
     <th>Name</th>
@@ -16,15 +16,16 @@
             <td><a href="{{stream.url}}">{{stream.name}}</a></td>
             <td>{{stream.lastNewPicDate}}</td>
             <td>{{stream.numOfPictures}}</td>
-            <td><input type="checkbox" name="status" value="{{stream.name}}"></td>
+            <td><input type="checkbox" name="delete_status" value="{{stream.name}}"></td>
             {% endif %}
         </tr>
   {% endfor %}
-</table>
-<intput type="submit" name="delete"><br>
+</table></br></br></br>
+<input type="submit" name="delete" value="delete"></br>
 </form>
-<h2>Streams I subscribeto</h2>
-<form action="unsubscribe" method="post">
+</br></br></br>
+<h2>Streams I subscribe</h2>
+<form action="/unsubscribestream" method="post">
 <table style="width:100%">
     <tr>
 	<th>Name</th>
@@ -39,11 +40,12 @@
 			<td><a href="{{stream0.url}}">{{stream0.name}}</a></td>
 			<td>{{stream0.lastNewPicDate}}</td>
 			<td>{{stream0.numOfPictures}}</td>
-			<td><input type="checkbox" name="status" value="{{stream0.name}}"></td>
+			<td><input type="checkbox" name="unsubscribe_status" value="{{stream0.name}}"></td>
 			{% endif %}
 		</tr>
 	{% endfor %}
-<input type="submit" name="unsubscribe"><br>
 </table>
+</br></br></br>
+<input type="submit" name="unsubscribe" value="unsubscribe"><br>
 </form>
 {% endblock %}

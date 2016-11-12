@@ -1,20 +1,37 @@
 {% extends "base.html" %}
 {% block content %}
 <div class="page_header">
-	<h1>{{stream.name}}</h1>
+	<h1>{{stream_name}}</h1>
 </div>
 <table>
+	{% for image in images %}
+	{% if loop.index0 %3 == 0 %}
 	<tr>
-		{% for pic int pictures %}
-		<td><img src="{{pic.key}}"></td>
-		{% endfor %}
-	<tr>
+	{% endif %}
+		<td><img src="/view_image/{{image.key}}"></td>
+	{% if loop.index0 %3 ==2 %}
+	</tr>
+	{% endif %}
+	{% endfor %}
 </table>
 <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4"></div>
         <div class="col-md-4"><p><a class="btn btn-primary" href="{{showmoreurl}}" role="button">More Pictures &raquo;</a></p></div>
 </div>
+<h2>Create New Image</h2></br>
+<form action="{{upload_url}}" method="POST" enctype="multipart/form-data">
+	<input type="text" name="file_name" value="File Name">
+	<input type="textarea" name="coment" value="comment">
+	<input type="file" name="Choose Image" value="Choose Image"></br>
+	<input type="submit" name="Upload" value="Upload">
+</form>
+
+<form action="subscribe" method="POST"></br></br>
+<input type="submit" name="subscribe" value="subscribe">
+</form>
+{% endblock %}
+
 
 
 
