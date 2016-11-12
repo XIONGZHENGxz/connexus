@@ -1,0 +1,5 @@
+cron:
+- description: refresh trending page 
+  url: /trending
+  schedule: every 5 minutes
+

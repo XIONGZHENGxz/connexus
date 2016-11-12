@@ -1,0 +1,39 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+
+handlers:
+- url: /
+  script: login.app
+- url: /home
+  script: login.app
+- url: /test
+  script: login.app
+- url: /createstream
+  script: createStream.app
+- url: /create
+  script: createStream.app
+- url: /management
+  script: management.app
+  login: required
+- url: /viewAll
+  script: viewAllStream.app
+- url: /deletestream
+  script: management.app
+- url: /unsubscribestream
+  script: management.app
+- url: /uplode
+  script: viewOneStream.app
+- url: /stream.*
+  script: viewOneStream.app
+- url: /uploadimage
+  script: viewOneStream.app
+- url: /error.*
+  script: error.app
+- url: /trending
+  script: trending.app
+
+libraries:
+- name: jinja2
+  version: latest

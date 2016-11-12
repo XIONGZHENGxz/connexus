@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block Trending %}<li class="active"><a href="trending">Trending</a></li>{% endblock %}
+{% block content %}
+<h1>Top Trending Streams</h1>
+<table>
+{% for stream in top_streams %}
+	{% if loop.index0 %4 ==0 %}
+		<tr>
+	{% endif %}
+		<td>
+			<figcaption>{{stream.name}}</figcaption>
+			<a href="{{stream.url}}">
+			<img src="{{stream.coverUrl}}" >
+			</a>
+		</td>
+	{% if loop.index0 %4 ==3 %}
+		</tr>
+	{% endif %}
+{% endfor %}
+</table>
+{% endblock %}
