@@ -18,6 +18,11 @@ indexes:
 
 - kind: Stream
   properties:
+  - name: name
+  - name: view_count
+
+- kind: Stream
+  properties:
   - name: owner
   - name: dateOfLastPic
     direction: desc

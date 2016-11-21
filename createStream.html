@@ -1,6 +1,26 @@
 {% extends "base.html" %}
-{% block create %} <li class="active" ><a href="createstream">Create</a></li>{% endblock %}
+{% block create %} 
+<style>
+li{
+list-style:none;
+color:blue;
+}
+li.active{
+color:red;
+}
+li a{
+text-decoration:none;
+}
+
+</style>
+<li  class="active" ><a href="createstream">CREATE</a></li>{% endblock %}
 {% block content %}
+<style>
+
+table{
+color: blue;
+}
+</style>
 <div class="create_stream_template">
 <form action="/create" method="POST">
 	<table>
@@ -9,21 +29,21 @@
 			<th>Tag your stream</th>
 		</tr>
 		<tr>
-			<td><textarea name="stream_name" rows="3" cols="20"></textarea></td>
+			<td><textarea name="stream_name" rows="3" cols="40"></textarea></td>
 			<td><textarea name="stream_tags" rows="3" cols="40"></textarea></td>
 		</tr>
 		<tr>
-			<td>Add subscribers</td>
-			<td>URL to cover image</td>
+			<th>Add subscribers</td>
+			<th>URL to cover image</td>
 		</tr>
 		<tr>
-			<td><textarea name="subscribers" rows="3" cols="30" placeholder="input of the email of subscribers"></textarea></td>
-			<td><textarea name="cover_image_url" rows="1" cols="40" placeholder="input the url of cover image(optional)"></textarea></td>
+			<td><textarea name="subscribers" rows="3" cols="40" placeholder="input of the email of subscribers" onblur="this.placeholder='input the email of subscribers'" onfocus="this.placeholder=''"></textarea></td>
+			<td><textarea name="cover_image_url" rows="3" cols="40" placeholder="input the url of cover image(optional)" onblur="this.placeholder='enter the url of cover image(optional)'" onfocus="this.placeholder=''"></textarea></td>
 		</tr>
 		<tr>
-			<td><textarea name="email_content" rows="3" cols="30" placeholder="content of email"></textarea></td>
+			<td><textarea name="email_content" rows="3" cols="40" placeholder="content of email" onblur="this.placeholder='content of the email'" onfocus="this.placeholder=''"></textarea></td>
 	</table>
 	<br><br>
-	<input type="submit" value="create stream">
+	<input style="margin-left:80px;color:blue;" type="submit" value="Create New Stream">
 </form>
 {% endblock %}

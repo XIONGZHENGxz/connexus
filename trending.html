@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% block Trending %}<li class="active"><a href="trending">Trending</a></li>{% endblock %}
+{% block Trending %}<li class="active"><a href="trending">TRENDING</a></li>{% endblock %}
 {% block content %}
-<h1>Top Trending Streams</h1>
+<h1 style="margin-left:40px;color:blue;">Top Trending Streams</h1>
 <table>
 {% for stream in top_streams %}
 	{% if loop.index0 %4 ==0 %}

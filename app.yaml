@@ -33,6 +33,8 @@ handlers:
   script: error.app
 - url: /trending
   script: trending.app
+- url: /searchStreams
+  script: search.app
 
 libraries:
 - name: jinja2
